@@ -1,32 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,200,300,400,500,600,700');
+
+
 body {
 	font-family: IBM Plex Mono;
   text-align: center;
-  
-  background-color: #383838;
-  /* color: #4744FF; */
-  color: white;
-  
   min-height: 100vh;
+
+  background-color: #383838;
+  color: white;
   
   display: flex;
 	align-items: center;
   justify-content: center;
+
 }
+
 
 .page {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  
+  /* position: absolute; */
   width: 100%;
   height: 100%;
 }
 
 #letter-page {
+  background-color: #ffffff;
+  color: #4744FF;
   z-index: 1;
+  align-items: center;
 
-  
+
+  /* background-image: url("imgs/letter_A.svg");
+  background-size: 75% 75%;  
+  background-repeat:no-repeat;
+  background-position: center;
+   */
+}
+
+img {
+   width: 50%;
+   position: absolute;
+   z-index: 1;
+   opacity: 0.1;
 }
 
 #grid-page {
@@ -34,17 +52,17 @@ body {
   font-size: 60px;
   line-height: 100px;
 
+  height: 100%;
 }
 
 section {
-   width: 100%;
+   width: 80%;
    height
    background-color: #383838;
    
    display: grid;
    grid-template-columns: repeat(9, 1fr);
-   grid-auto-rows: 140px;
-
+   grid-auto-rows: 150px;
 }
 
 .hidden{
@@ -58,27 +76,53 @@ section {
 }
 
 .copy{
+
   display: flex;
   flex-direction: column;
 	align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  z-index: 2;
 }
+
 p {
   text-align: center;
   font-size: 20px;
   line-height: 40px;
-  width: 60%;
+  width: 50%;
+  font-weight: 400;
 
 }
 
-h2{
-
+h2 {
+  /* width: 50%; */
   text-align: center;
-  font-size: 150px;
-  line-height: 40px;
-  width: 60%;
+  font-size: 9vw; 
+  margin-bottom: 40px;
 
-  padding: 100px;
+  font-weight: 700;
 
 }
 
+
+@media screen and (max-width: 600px) {
+
+  section {
+    height: 80%;
+    width: 80%;    
+    /* display: grid; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 100px;
+  }
+
+  .copy{
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    justify-content: flex-start;
+    /* z-index: 2; */
+  
+    
+  }
+
+}

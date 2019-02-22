@@ -24,10 +24,11 @@ document.addEventListener("mousemove", function(event){
 
 })
 
-let currentLetter = ''
 
 let letterPage = document.getElementById("letter-page");
 let gridPage = document.getElementById("grid-page");
+
+
 
 document.querySelectorAll(".box").forEach((box) => {
 
@@ -35,22 +36,33 @@ document.querySelectorAll(".box").forEach((box) => {
 
     box.addEventListener("click", (e) => {
 
-        console.log(e)
+        //console.log(e)
         gridPage.classList.add("hidden");
         letterPage.classList.remove("hidden");
 
-        currentLetter = box.innerHTML;
-        let letterHeader = document.getElementById("letterH2");
-        letterHeader.innerHTML = currentLetter;
 
+
+        let currentLetter = ''
+        currentLetter = box.innerHTML;
+
+        let letterHeader = document.getElementById("letterH2");
+        let letterParagraph = document.getElementById("letterParag");
+        letterHeader.innerHTML = words[currentLetter];
+        
+        letterParagraph.innerHTML = definitions[currentLetter];   
     })
 })
+
+
+
 
 document.querySelectorAll(".copy").forEach((text) => {
     
     text.addEventListener("click", (e) => {
-        console.log(e)
+        //console.log(e)
         letterPage.classList.add("hidden");
         gridPage.classList.remove("hidden");
     })
 })
+
+
