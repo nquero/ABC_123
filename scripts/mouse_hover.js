@@ -18,29 +18,23 @@ document.addEventListener("mousemove", function(event){
         //div.innerHTML = score.toFixed(2)
 
         div.style.transform = "scale(" + score + ")"
-        div.style.fontWeight = 100 + (100 * Math.round(8 * score))        
-       
+        div.style.fontWeight = 100 + (100 * Math.round(8 * score))             
     })
-
 })
 
 
 let letterPage = document.getElementById("letter-page");
 let gridPage = document.getElementById("grid-page");
-
-
+let arrows = document.getElementById ("arrows");
 
 document.querySelectorAll(".box").forEach((box) => {
 
     letterPage.classList.add("hidden");
 
     box.addEventListener("click", (e) => {
-
         //console.log(e)
         gridPage.classList.add("hidden");
         letterPage.classList.remove("hidden");
-
-
 
         let currentLetter = ''
         currentLetter = box.innerHTML;
@@ -53,16 +47,29 @@ document.querySelectorAll(".box").forEach((box) => {
     })
 })
 
+    letterPage.addEventListener("click", (e) => {
 
-
-
-document.querySelectorAll(".copy").forEach((text) => {
-    
-    text.addEventListener("click", (e) => {
-        //console.log(e)
         letterPage.classList.add("hidden");
         gridPage.classList.remove("hidden");
+
+    })
+
+
+
+document.querySelectorAll(".arrows").forEach((arrows) => {
+
+    arrows.addEventListener("click", (e) => {
+        // console.log("Arrows Pressed");
+        console.log(Object.values(words));    
+        
+        for (var property in words) {
+            
+            if (Object.hasOwnProperty("A")) {
+                console.log(Object.values("test"));    
+
+           
+            }
+        
+        }
     })
 })
-
-

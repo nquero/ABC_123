@@ -1,4 +1,4 @@
-var words = {
+let words = {
     A: "Adipiscing",
     B: "Bibendum",
     C: "Commodo",
@@ -6,7 +6,7 @@ var words = {
     E: "Euismod",
 };
 
-var definitions = {
+let definitions = {
     A: "AdipiMorbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
 
     B: "Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.",
