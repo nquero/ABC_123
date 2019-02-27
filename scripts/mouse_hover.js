@@ -22,6 +22,7 @@ document.addEventListener("mousemove", function(event){
     })
 })
 
+
 let letterPage = document.getElementById("letter-page");
 let gridPage = document.getElementById("grid-page");
 
@@ -43,43 +44,87 @@ document.querySelectorAll(".box").forEach((box) => {
         letterPage.classList.remove("hidden");
 
         currentLetter = box.innerHTML;
-        //console.log(currentLetter);
 
-        letterHeader.innerHTML = words[0].HEADING;
-        letterParagraph.innerHTML = words[0].TEXT;  
+        //console.log(currentLetter);    
+        //console.log(letterPagesArray.ID);
+
+        const currentObj = getObjById(currentLetter, letterPagesArray)
+        let num = letterPagesArray.indexOf(currentObj)
+
+        console.log(num);
+
+        letterHeader.innerHTML = currentObj.HEADING;
+        letterParagraph.innerHTML = currentObj.TEXT;  
+
+
+        // PREVIOUS ARROW
+        previousArrow.addEventListener("click", (e) => {
+            
+
+            num = num - 1;
+
+            let prevObj = letterPagesArray[num];
+
+            letterHeader.innerHTML = prevObj.HEADING;
+            letterParagraph.innerHTML = prevObj.TEXT;  
+
+            console.log(num);
+
+            
+        })
         
-        console.log(words[1].ID);
-        
-        
+        // NEXT ARROW
+        nextArrow.addEventListener("click", (e) => {
+            num = num + 1;
+
+            let nextObj = letterPagesArray[num];
+
+            letterHeader.innerHTML = nextObj.HEADING;
+            letterParagraph.innerHTML = nextObj.TEXT;  
+
+            console.log(num); 
+
+
+            if (num > 0 && num < 25) {
+                previousArrow.classList.remove("hidden");
+                console.log("this is not A");
+            }
+           
+        })
+
+
+        // BACK TO GRID PAGE
+        letterParagraph.addEventListener("click", (e) => {
+            letterPage.classList.add("hidden");
+            gridPage.classList.remove("hidden");
+            num = 0;
+        })
     })
 })
 
 
-letterParagraph.addEventListener("click", (e) => {
-        letterPage.classList.add("hidden");
-        gridPage.classList.remove("hidden");
-})
+function getObjById(id, array) {
+    return array.filter(item => item.ID === id)[0]
+}
 
 
 
-previousArrow.addEventListener("click", (e) => {
-    console.log("Previous Arrow Clicked");
-})
 
 
-nextArrow.addEventListener("click", (e) => {
-    console.log("Next Arrow Clicked");
 
-    // console.log(words[0][0]);  
-        letterHeader.innerHTML = words[1].HEADING;
-        letterParagraph.innerHTML = words[1].TEXT; 
-})
+
 
 
 
 // if current letter = A, then prevArrow shouldn't work - disabled
 // if current letter index = 0 (A), then next arrow = currentLetterIndex++
 
-//function to make each letter into a number
-//if currentLetter = ID, return HEADER & PARA
 
+
+// if (num == 0) {
+    //     previousArrow.classList.add("hidden");
+    //     console.log("this is A");
+
+    // } else {
+    //     previousArrow.classList.remove("hidden")
+    // }
