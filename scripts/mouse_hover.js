@@ -22,10 +22,16 @@ document.addEventListener("mousemove", function(event){
     })
 })
 
-
 let letterPage = document.getElementById("letter-page");
 let gridPage = document.getElementById("grid-page");
-let arrows = document.getElementById ("arrows");
+
+let currentLetter = '';
+let letterHeader = document.getElementById("letterH2");
+let letterParagraph = document.getElementById("letterParag");
+
+let previousArrow = document.getElementById("prev-arrow");
+let nextArrow = document.getElementById("next-arrow");
+
 
 document.querySelectorAll(".box").forEach((box) => {
 
@@ -36,40 +42,44 @@ document.querySelectorAll(".box").forEach((box) => {
         gridPage.classList.add("hidden");
         letterPage.classList.remove("hidden");
 
-        let currentLetter = ''
         currentLetter = box.innerHTML;
+        //console.log(currentLetter);
 
-        let letterHeader = document.getElementById("letterH2");
-        let letterParagraph = document.getElementById("letterParag");
-        letterHeader.innerHTML = words[currentLetter];
+        letterHeader.innerHTML = words[0].HEADING;
+        letterParagraph.innerHTML = words[0].TEXT;  
         
-        letterParagraph.innerHTML = definitions[currentLetter];   
+        console.log(words[1].ID);
+        
+        
     })
 })
 
-    letterPage.addEventListener("click", (e) => {
 
+letterParagraph.addEventListener("click", (e) => {
         letterPage.classList.add("hidden");
         gridPage.classList.remove("hidden");
-
-    })
-
-
-
-document.querySelectorAll(".arrows").forEach((arrows) => {
-
-    arrows.addEventListener("click", (e) => {
-        // console.log("Arrows Pressed");
-        console.log(Object.values(words));    
-        
-        for (var property in words) {
-            
-            if (Object.hasOwnProperty("A")) {
-                console.log(Object.values("test"));    
-
-           
-            }
-        
-        }
-    })
 })
+
+
+
+previousArrow.addEventListener("click", (e) => {
+    console.log("Previous Arrow Clicked");
+})
+
+
+nextArrow.addEventListener("click", (e) => {
+    console.log("Next Arrow Clicked");
+
+    // console.log(words[0][0]);  
+        letterHeader.innerHTML = words[1].HEADING;
+        letterParagraph.innerHTML = words[1].TEXT; 
+})
+
+
+
+// if current letter = A, then prevArrow shouldn't work - disabled
+// if current letter index = 0 (A), then next arrow = currentLetterIndex++
+
+//function to make each letter into a number
+//if currentLetter = ID, return HEADER & PARA
+
