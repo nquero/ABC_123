@@ -8,7 +8,10 @@
 <body>
 
     <div class="page" id="grid-page">
-        <section>
+        <!-- <header>
+            <h1>this is a header</h1>
+        </header> -->
+        <section class="fade">
             <div class="box">A</div>
             <div class="box">B</div>
             <div class="box">C</div>
@@ -48,24 +51,30 @@
         </section>
     </div>
 
-    <div class="page" id="letter-page">        
-        <img class="illustration" src="styles/imgs/letter_A.svg" alt="letter_A">
-        
+    <div class="page" id="letter-page">
+       
+        <div id="bm"></div>
+        <img id="bm" class="illustration" src="styles/imgs/letter_A.svg" alt="letter_A">
         <section class="copy">
-
-            <h2 id="letterH2"></h2>
-            <p id="letterParag">
-
-                "AdipiMorbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
-
-            </p>
             
+           
+                
+   
+            
+           
+                <h2 id="letterH2"></h2>
+                <p id="letterParag"></p>
+         
+            
+
         </section>
 
         <div id="prev-arrow" class="arrows prev"></div>
-        <div id="next-arrow"class="arrows next"></div>
-    </div>    
+        <div id="next-arrow" class="arrows next"></div>
 
+    </div>
+
+    <script src="scripts/bodymovin.js"></script>
     <script src="scripts/letterPagesArray.js"></script>
     <script src="scripts/mouse_hover.js"></script>
 

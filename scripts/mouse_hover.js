@@ -34,6 +34,8 @@ let previousArrow = document.getElementById("prev-arrow");
 let nextArrow = document.getElementById("next-arrow");
 
 
+
+
 document.querySelectorAll(".box").forEach((box) => {
 
     letterPage.classList.add("hidden");
@@ -45,51 +47,53 @@ document.querySelectorAll(".box").forEach((box) => {
 
         currentLetter = box.innerHTML;
 
-        //console.log(currentLetter);    
-        //console.log(letterPagesArray.ID);
-
-        const currentObj = getObjById(currentLetter, letterPagesArray)
-        let num = letterPagesArray.indexOf(currentObj)
-
-        console.log(num);
+        const currentObj = getObjById(currentLetter, letterPagesArray);
+        let num = letterPagesArray.indexOf(currentObj);
 
         letterHeader.innerHTML = currentObj.HEADING;
         letterParagraph.innerHTML = currentObj.TEXT;  
 
+        previousArrow.classList.remove("hidden");
+        nextArrow.classList.remove("hidden");
+
+        // if (num == 0){
+        //     previousArrow.classList.add("hidden");
+        // } else if (num == 35){
+        //     nextArrow.classList.add("hidden");
+        // }
+
+        
 
         // PREVIOUS ARROW
         previousArrow.addEventListener("click", (e) => {
-            
+            //nextArrow.classList.remove("hidden");
 
+            if (num == 0){
+                num = 35 + 1;
+                
+            }
+        
             num = num - 1;
-
             let prevObj = letterPagesArray[num];
-
             letterHeader.innerHTML = prevObj.HEADING;
-            letterParagraph.innerHTML = prevObj.TEXT;  
-
-            console.log(num);
-
-            
+            letterParagraph.innerHTML = prevObj.TEXT;   
         })
         
         // NEXT ARROW
         nextArrow.addEventListener("click", (e) => {
             num = num + 1;
-
             let nextObj = letterPagesArray[num];
-
             letterHeader.innerHTML = nextObj.HEADING;
             letterParagraph.innerHTML = nextObj.TEXT;  
+ 
+            if (num == 35 + 1){
+                letterHeader.innerHTML = letterPagesArray[0].HEADING;
+                letterParagraph.innerHTML = letterPagesArray[0].TEXT;
+                num = 0;
 
-            console.log(num); 
-
-
-            if (num > 0 && num < 25) {
-                previousArrow.classList.remove("hidden");
-                console.log("this is not A");
             }
-           
+
+           // previousArrow.classList.remove("hidden");
         })
 
 
@@ -109,22 +113,10 @@ function getObjById(id, array) {
 
 
 
-
-
-
-
-
-
-
-// if current letter = A, then prevArrow shouldn't work - disabled
-// if current letter index = 0 (A), then next arrow = currentLetterIndex++
-
-
-
-// if (num == 0) {
-    //     previousArrow.classList.add("hidden");
-    //     console.log("this is A");
-
-    // } else {
-    //     previousArrow.classList.remove("hidden")
-    // }
+var animation = bodymovin.loadAnimation({
+    container: document.getElementById('bm'),
+    renderer: 'svg',
+    // loop: true,
+    autoplay: true,
+    path: 'data.json',
+  })
